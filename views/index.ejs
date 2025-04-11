@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <%- include('./partials/head') %>
+  </head>
+
+  <body>
+    <%- include('./partials/shop/header/header', {
+      email: 'support@yourshop.com',
+      phone: '+84 987 654 321',
+      cartItems: [
+        {
+          name: 'Kabino Table',
+          price: '₫60.00',
+          quantity: 1,
+          image: '/img/select-product-1.jpg'
+        },
+        {
+          name: 'Modern Chair',
+          price: '₫60.00',
+          quantity: 1,
+          image: '/img/select-product-2.jpg'
+        }
+      ],
+      cartTotal: '₫120.00'
+    }) %>
+
+    <%- include('./partials/shop/breadcump/breadcrumb', { currentPage: 'Shop' }) %>
+
+    <%- include('./partials/shop/product-grid', {
+      products: [
+          { image: 'img/products/product-1.jpg', sale: true, category: 'Towel', name: 'Pure Pineapple', price: 14.00 },
+          { image: 'img/products/product-2.jpg', sale: false, category: 'Coat', name: 'Guangzhou sweater', price: 13.00 },
+          { image: 'img/products/product-3.jpg', sale: false, category: 'Shoes', name: 'Guangzhou sweater', price: 34.00 },
+          { image: 'img/products/product-4.jpg', sale: false, category: 'Coat', name: 'Microfiber Wool Scarf', price: 64.00 },
+          { image: 'img/products/product-5.jpg', sale: false, category: 'Shoes', name: "Men's Painted Hat", price: 44.00 },
+          { image: 'img/products/product-6.jpg', sale: false, category: 'Shoes', name: 'Converse Shoes', price: 34.00 },
+          { image: 'img/products/product-7.jpg', sale: true, category: 'Towel', name: 'Pure Pineapple', price: 64.00 },
+          { image: 'img/products/product-8.jpg', sale: false, category: 'Coat', name: '2 Layer Windbreaker', price: 44.00 },
+          { image: 'img/products/product-9.jpg', sale: false, category: 'Shoes', name: 'Converse Shoes', price: 34.00 }
+      ]
+  }) %>
+
+    <%- include('./partials/shop/partner-logo', {
+    logos: [
+      'img/logo-carousel/logo-1.png',
+      'img/logo-carousel/logo-2.png',
+      'img/logo-carousel/logo-3.png',
+      'img/logo-carousel/logo-4.png',
+      'img/logo-carousel/logo-5.png'
+    ]
+  }) %>
+
+    <%- include('./partials/shop/footer',{ cartLink: '/shopping-cart' }) %>
+
+    <%- include('./partials/script') %>
+  </body>
+</html>
