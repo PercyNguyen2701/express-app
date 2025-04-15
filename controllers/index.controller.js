@@ -1,25 +1,9 @@
-class IndexController {
-  constructor(mysqlConfig) {
-    this.mysqlConfig = mysqlConfig;
-  }
+import index from '../models/index.model.js';
 
-  getHomePage(req, res) {
-    const sql = 'SELECT * FROM users LIMIT ?';
-    this.mysqlConfig.query(sql, [10], (err, results) => {
-      err
-        ? res.status(500).send('Lỗi truy xuất dữ liệu: ' + err.message)
-        : res.render('index', { users: results ? results : [] });
-    });
-  }
-
-  getShoppingCartPage(req, res) {
-    const sql = 'SELECT * FROM users LIMIT ?';
-    this.mysqlConfig.query(sql, [10], (err, results) => {
-      err
-        ? res.status(500).send('Lỗi truy xuất dữ liệu: ' + err.message)
-        : res.render('shopping-cart', { users: results ? results : [] });
-    });
-  }
+export async function getHomePageController(req, res) {
+  index.getHomePage(req, res);
 }
 
-export default IndexController;
+export async function getShoppingCartPageController(req, res) {
+  index.getShoppingCartPage(req, res);
+}

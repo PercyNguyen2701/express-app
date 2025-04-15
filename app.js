@@ -6,8 +6,10 @@ import bodyParser from 'body-parser';
 import path from 'path';
 import { fileURLToPath } from 'url';
 
-import indexRoutes from './routes/index.route.js';
-import userRoutes from './routes/user.route.js';
+import indexRoutes from './routes/index.routes.js';
+import userRoutes from './routes/user.routes.js';
+import rectangleRoutes from './routes/rectangle.routes.js';
+
 import MySQLConfig from './config/mysql.config.js';
 import MongoDBConfig from './config/mongodb.config.js';
 
@@ -27,6 +29,7 @@ app.use(bodyParser.json());
 // Sử dụng các routes
 app.use('/', indexRoutes);
 app.use('/', userRoutes);
+app.use('/', rectangleRoutes);
 
 MySQLConfig.connect((err) => {
   err ? console.error('Lỗi kết nối MySQL:', err) : console.log('Kết nối MySQL thành công!');
