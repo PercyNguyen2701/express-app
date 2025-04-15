@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Hình Vuông</title>
+    <style>
+      body {
+        font-family: sans-serif;
+        padding: 2rem;
+      }
+
+      form {
+        margin-bottom: 2rem;
+      }
+
+      input {
+        margin: 0.5rem 0;
+        padding: 0.5rem;
+        width: 100%;
+        max-width: 300px;
+      }
+
+      button {
+        padding: 0.5rem 1rem;
+      }
+
+      .result {
+        background: #f0f0f0;
+        padding: 1rem;
+        max-width: 300px;
+        border-radius: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Thông tin Hình vuông</h1>
+
+    <!-- Sử dụng POST method -->
+    <form method="POST" action="/square">
+      <label for="sidelength">Độ dài</label><br />
+      <input
+        type="number"
+        id="sidelength"
+        name="sidelength"
+        value="<%= sidelength || '' %>"
+        required
+      /><br />
+
+      <button type="submit">Tính toán</button>
+    </form>
+
+    <% if (perimeter && area) { %>
+    <div class="result">
+      <h3>Kết quả:</h3>
+      <p>Độ dài: <%= width %></p>
+      <p>Chu vi: <%= perimeter %></p>
+      <p>Diện tích: <%= area %></p>
+    </div>
+    <% } %>
+  </body>
+</html>
