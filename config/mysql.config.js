@@ -1,17 +1,16 @@
 import mysql from 'mysql2';
-import dotenv from 'dotenv';
-dotenv.config();
+import config from './configuration';
 
 class MySQLConfig {
   constructor() {
     if (!MySQLConfig.instance) {
       this.connection = mysql.createConnection({
-        host: process.env.MYSQL_HOST, // Nên là địa chỉ từ Railway, không phải localhost
-        port: process.env.MYSQL_PORT, // Cổng theo Railway (ví dụ: 6969)
-        user: process.env.MYSQL_USER,
-        password: process.env.MYSQL_PASSWORD,
-        database: process.env.MYSQL_DATABASE,
-        ssl: process.env.NODE_ENV === 'production' ? { rejectUnauthorized: true } : false,
+        host: config.MYSQL_HOST, // Nên là địa chỉ từ Railway, không phải localhost
+        port: config.MYSQL_PORT, // Cổng theo Railway (ví dụ: 6969)
+        user: config.MYSQL_USER,
+        password: config.MYSQL_PASSWORD,
+        database: config.MYSQL_DATABASE,
+        ssl: config.NODE_ENV === 'production' ? { rejectUnauthorized: true } : false,
       });
       MySQLConfig.instance = this;
     }
